@@ -1,12 +1,13 @@
 <x-layout>
-    <form action="/fakultas" method="POST">
+    <h1>Edit <Fieldset></h1>
+    <form action="/fakultas/{{ $fakultas->id }}" method="POST">
         @csrf
         @method("PUT")
         <div class="form-group">
             <input name="nama_fakultas"
              type="text" 
              placeholder="Nama Fakultas" 
-             class="form-control">
+             class="form-control"
              value="{{ $fakultas->nama_fakultas }}"
              >
         </div>
