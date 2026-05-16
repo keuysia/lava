@@ -10,9 +10,48 @@
     <div class="container">
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+
+        {{-- Brand --}}
+        <a class="navbar-brand" href="#">Navbar</a>
+
+        {{-- Button Mobile --}}
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {{-- Navigation --}}
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                {{-- Menu Fakultas --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('fakultas') ? 'active' : '' }}"
+                       href="{{ url('/fakultas') }}">
+                        Fakultas
+                    </a>
+                </li>
+
+                {{-- Menu Tambah Fakultas --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('fakultas/create') ? 'active' : '' }}"
+                       href="{{ url('/fakultas/create') }}">
+                        Tambah Fakultas
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
     </div>
-  </nav>
+</nav>
 </div>
     {{ $slot }}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

@@ -32,6 +32,11 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nama_fakultas' => ['required'],
+            'nama_dekan' => ['required', "max:5"]
+        ]);
+        
         Fakultas::create([
             'nama_fakultas' => $request->nama_fakultas,
             'nama_dekan' => $request->nama_dekan,
