@@ -1,5 +1,15 @@
 <x-layout>
     {{-- /fakultas/{{ $fakultas->id }} --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $item)
+                    <li>{{ $item }}</li>
+                @endforeach
+            </ul>
+        </div>
+
+    @endif
     <form action="{{ route('fakultas.update', $fakultas->id) }}" method="POST">
         @csrf
         @method('PUT')

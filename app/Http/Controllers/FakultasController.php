@@ -35,8 +35,13 @@ class FakultasController extends Controller
         $validated = $request->validate([
             'nama_fakultas' => ['required'],
             'nama_dekan' => ['required', "max:5"]
-        ]);
-        
+        ], [
+            'nama_fakultas.required' => 'Nama Fakultas Wajib di isi, tidak boleh lebih dari 5',
+            'nama_dekan.required' => 'Nama dekan Wajib di isi',
+            'nama_fakultas.max' => 'Nama Fakultas, maksimal 5 karakter',
+            'nama_dekan.max' => 'Nama Dekan, maksimal 5 karakter',
+        ]); 
+
         Fakultas::create([
             'nama_fakultas' => $request->nama_fakultas,
             'nama_dekan' => $request->nama_dekan,
